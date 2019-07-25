@@ -1,0 +1,91 @@
+@import "@/styles/root_styles.scss";
+@import "@/components/Address/address.scss";
+
+.contact{
+    @include flex_center();
+    &_text{
+        h5{
+            font-size: $font_content-title;
+            text-transform: capitalize;
+            font-weight: 300;
+        }
+        h1{
+            margin-top: 1vmin;
+            font-size: $font_title;
+            font-weight: 600;
+        }
+    }
+    &_address{
+        margin-top: 3vmin;
+    }
+    &-map_container{
+        margin-left: 7vmin;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &_map{
+        width: 60vmin;
+        height: 40vmin;
+        &-button{
+            @include request_button(
+                $font_content,
+                5vmin,
+                10vmin
+            );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5vmin;
+            width: 40vmin
+        }
+    }
+}
+
+@mixin media_contacts() {
+    .contact{
+        @include flex_column_start();
+        padding: 5vmin;
+        &_text{
+            h1{
+                margin-top: 4vmin;
+            }
+        }
+        &-map_container{
+            margin-left: 0;
+            margin-top: 10vmin;
+            width: 100%;
+            .contact_map{
+                width: 100%;
+                &-button{
+                    @include request_button(
+                        $font_content,
+                        12vmin,
+                        70vmin
+                    );
+                }
+            }
+        }
+        &_address{
+            margin-top: 8vmin;
+            .tella-address{
+                @include media_address();
+            }
+        }
+    }
+}
+
+@media only screen and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+    .contact_map{
+        width: 40vmin;
+        height: 60vmin;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    @include media_contacts();
+}
+@media (min-width: 481px) and (max-width: 850px) and (orientation: landscape) {
+    @include media_contacts();
+}

@@ -1,0 +1,52 @@
+@import "@/styles/root_styles.scss";
+
+.footer {
+    font-size: $font_link;
+    @include HF_position();
+    &_envelope{
+        &:hover{
+            cursor: pointer;
+            animation: zoom 1s ease-in-out;
+        }
+    }
+    &_language-switch{
+        @include language_switch_button();
+    }
+    &_links{
+        display: flex;
+    }
+    &_link{
+        margin-right: 2vmin;
+        &:hover{
+            @include link_hover();
+        }
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}
+@keyframes zoom{
+    0%{
+        transform: scale(1)
+    }
+    50%{
+        transform: scale(1.2)
+    }
+    100%{
+        transform: scale(1)
+    }
+}
+
+@mixin footer_media(){
+    .footer{
+        &_link{
+            margin-right: 4vmin;
+        }
+    }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    @include footer_media();
+}
+@media (min-width: 481px) and (max-width: 850px) and (orientation: landscape) {
+    @include footer_media();
+}

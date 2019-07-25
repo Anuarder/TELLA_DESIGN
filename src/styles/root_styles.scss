@@ -1,0 +1,84 @@
+$tella_green: #24f2ad;
+
+// $font-link: 1.1rem;
+// $font_title: 3rem;
+// $font_content: 1.125rem;
+// $font-content-title: 1.5rem;
+$font-link: calc(.7rem + 0.5vmin);
+$font_title: calc(2.2rem + 0.5vmin);
+$font_content: calc(.9rem + 0.5vmin);
+$font-content-title: calc(1.5rem + 0.5vmin);
+
+@mixin absolute_center() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin flex_center() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin flex_column_start() {
+	flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+@mixin link_hover() {
+	transition: 0.2s;
+	color: $tella_green;
+}
+
+@mixin set_background($url, $size, $position) {
+    background-image: url($url);
+	background-size: $size;
+	background-position: $position;
+	background-repeat: no-repeat;
+}
+
+
+// HF -> header footer
+@mixin flex_between() {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+@mixin HF_position() {
+	padding: 4.2vmin;
+	&_container {
+		@include flex_between();
+	}
+}
+
+@mixin request_button($font_size, $height, $width) {
+	outline: none;
+	border: 1px solid $tella_green;
+	font-size: $font_size;
+	font-weight: 400;
+	height: $height;
+	width: $width;
+	background-color: transparent;
+	span{
+		color: $tella_green;
+	}
+	&:hover{
+		cursor: pointer;
+		transition: .3s;
+		background-color: $tella_green;
+		span{
+			color: #000;
+		}
+	}
+}
+
+@mixin language_switch_button() {
+	user-select: none;
+    cursor: pointer;
+    &:hover{
+        color: $tella_green;
+    }
+}

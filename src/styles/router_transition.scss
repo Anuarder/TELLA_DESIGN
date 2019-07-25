@@ -1,0 +1,47 @@
+// FADE
+.fade-enter-active,
+.fade-leave-active {
+	transition-duration: 0.3s;
+	transition-property: opacity;
+	transition-timing-function: ease-in-out;
+}
+.fade-enter,
+.fade-leave-active {
+	opacity: 0;
+}
+
+@keyframes slide_item {
+	0% {
+		opacity: 0;
+		transform: translateX(40px);
+	}
+	75% {
+		opacity: 0.5;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+
+@keyframes showSidebar{
+    from{
+        opacity: 0;
+        height: 0;
+    }
+    to{
+        opacity: 1;
+        height: 100vh;
+    }
+}
+@keyframes hideSidebar {
+    from{
+        opacity: 1;
+        height: 100vh;
+    }
+    to{
+        opacity: 0;
+        height: 0;
+    }
+}

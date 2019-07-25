@@ -1,0 +1,115 @@
+@import "@/styles/root_styles.scss";
+
+.home,
+.home_content-container {
+	@include flex_center();
+	height: 100%;
+}
+
+.home-content {
+	display: flex;
+	&_image {
+		margin-left: -10vmin;
+		max-width: 70vmin;
+	}
+	&_title {
+		margin-top: 15vmin;
+		h1 {
+			font-weight: 400;
+		}
+		font-size: 3.8vmin;
+		line-height: 6.5vmin;
+	}
+	&_links {
+		margin-top: 3vmin;
+		display: flex;
+		align-items: center;
+		a {
+			font-size: $font_link;
+			margin-right: 3.5vmin;
+			&:hover {
+				@include link_hover();
+			}
+		}
+	}
+	&_centered-text {
+		text-align: center;
+		.home-content_title {
+			margin-top: -15vmin;
+		}
+		.home-content_links {
+			justify-content: center;
+			a:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+.limits-content {
+    @include set_background(
+        "../../assets/main-background_limits.jpg",
+        cover,
+        center
+    );
+}
+.provide-content {
+    @include set_background(
+        "../../assets/main-background_provide.jpg",
+        contain,
+        bottom
+    )
+}
+
+@media only screen 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .home-content {
+        display: flex;
+        flex-direction: column;
+        &_image {
+            margin-left: -10vmin;
+            max-width: 80vmin;
+        }
+        &_title {
+            margin-top: 0;
+            font-size: 4.5vmin;
+		    line-height: 7.5vmin;
+        }
+        &_links {
+            a {
+                font-size: 4vmin;
+            }
+        }
+        &_centered-text {
+            text-align: center;
+            .home-content_title {
+                margin-top: -15vmin;
+            }
+            .home-content_links {
+                justify-content: center;
+                a:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+    .provide-content{
+        background-size: cover;
+	    background-position: center;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 850px) and (orientation: landscape){ 
+    .home-content {
+        &_title{
+            font-size: 4.5vmin;
+            line-height: 7.5vmin;
+        }
+        &_image {
+            margin-left: -10vmin;
+            max-width: 60vmin;
+        }
+    }
+}

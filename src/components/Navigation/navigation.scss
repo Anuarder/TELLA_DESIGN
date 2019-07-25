@@ -1,0 +1,58 @@
+@import "@/styles/root_styles.scss";
+
+$logo_size: 25vmin;
+.navigation {
+	@include HF_position();
+	position: relative;
+	z-index: 2;
+	&_logo {
+		max-width: $logo_size;
+		
+	}
+	&_logo-vertical{
+		max-width: $logo_size;
+		position: absolute;
+		top: 4.2vmin;
+	}
+	&_menu{
+		display: flex;
+		&-conversion{
+			display: flex;
+			align-items: center;
+			.phone-image{
+				display: none;
+				margin-right: 7vmin;
+			}
+			.phone-button{
+				margin-right: 5vmin;
+				@include flex_center();
+				@include request_button(
+					$font_link,
+                    3.5vmin,
+                    170px
+				);
+			}
+		}
+		&:hover{
+			cursor: pointer;
+		}
+	}
+}
+
+@mixin media-navigation_menu() {
+	.navigation_menu{
+		.phone-image{
+			display: flex;
+		}
+		.phone-button{
+			display: none;
+		}
+	}
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+	@include media-navigation_menu();
+}
+@media (min-width: 481px) and (max-width: 850px) and (orientation: landscape) {
+	@include media-navigation_menu(); 
+}

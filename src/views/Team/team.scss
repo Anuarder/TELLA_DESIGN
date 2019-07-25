@@ -1,0 +1,124 @@
+@import "@/styles/root_styles.scss";
+
+.team-slider{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow: hidden; 
+    &_item{
+        position: relative;
+        transition: .5s ease;
+        min-width: 75%;
+        @include flex_center();
+    }
+    &_title{
+        font-size: $font_title;
+        font-weight: 600;
+        margin-right: 10vmin;
+    }
+    &_position{ 
+        margin-top: 2vmin;
+        font-size: $font_content-title;
+        font-weight: 300;
+    }
+    &_photo{
+        img{
+            max-height: 85vmin;
+        }
+    }
+    &_controls{
+        position: absolute;
+        bottom: 10vmin;
+        right: 20vmin;
+        z-index: 1;
+    }
+    &_next-button{
+        cursor: pointer;
+        outline: none;
+        padding: 10px;
+        border: none;
+        background: none;
+    }
+}
+.shadow{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    height: 100%;
+    width: 27vmin;
+    transition: .3s ease;
+    cursor: pointer;
+}
+.team-footer{
+    position: absolute;
+    bottom: 4.2vmin;
+    left: 4.2vmin;
+    right: 4.2vmin;
+    &_container {
+		@include flex_between();
+    }
+    &_language-switch{
+        @include language_switch_button();
+    }
+}
+
+
+@media only screen 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .team-slider{
+        &_item{
+            min-width: 100%;
+        }
+        &_controls{
+            display: none;
+        }
+    }
+    .shadow{
+        display: none;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) { 
+    .team-slider{
+        &_item{
+            min-width: 100%;
+        }
+        &_title{
+            position: absolute;
+            z-index: 1;
+            font-size: calc(1.9rem + 0.5vmin);
+            bottom: 50vmin;
+            left: 4.2vmin;
+            text-shadow: 1px 1px 1px #000000;
+        }
+        &_position{ 
+            font-size: calc(1.5rem + 0.5vmin);
+        }
+        &_photo{
+            position: absolute;
+            right: 1vmin;
+            img{
+                max-height: 130vmin;
+            }
+        }
+    }
+    .team-footer{
+        display: none;
+    }
+}
+@media (min-width: 481px) and (max-width: 850px) and (orientation: landscape){ 
+    .team-slider{
+        &_controls{
+            display: none;
+        }
+        &_item{
+            min-width: 80%;
+        }
+    }
+    .team-footer{
+        display: none;
+    }
+}

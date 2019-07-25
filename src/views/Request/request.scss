@@ -1,0 +1,133 @@
+@import "@/styles/root_styles.scss";
+@import "@/components/Address/address.scss";
+
+.request{
+    @include flex_center();
+    &-form, &-success{
+        margin-right: 10vmin;
+        animation: fade .5s ease-in-out;
+        &_title{
+            max-width: 57vmin;
+            h1{
+                font-size: $font_title;
+            }
+            h2{
+                margin-top: 4vmin;
+                font-size: $font_content;
+                font-weight: 300;
+            }
+        }
+        &_form{
+            margin-top: 5vmin;
+        }
+        &_item{
+            input{
+                border: none;
+                outline: none;
+                padding: 1.5vmin 0;
+                font-size:  $font_content;
+                background-color: transparent;
+                border-bottom: 1px solid #fff;
+                width: 100%;
+                &::-webkit-input-placeholder {
+                    color: #f1f1f1;
+                    font-weight: 300;
+                }
+            }
+        }
+        &_item-2{
+            margin-top: 3vmin;
+            display: flex;
+            input:last-child{
+                margin-left: 3vmin;
+            }
+        }
+        &_button{
+            margin-top: 7vmin;
+            @include request_button(
+                $font_content,
+                6.5vmin,
+                20vmin
+            );
+        }
+    }
+}
+
+@media only screen 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .request{
+        padding: 7vmin;
+        flex-direction: column;
+        align-items: flex-start;
+        &-form, &-success{
+            margin-right: 0;
+        }
+        &-address{
+            margin-top: 5vmin;
+            .tella-address{
+                &_container{
+                    display: flex;
+                }
+                &_item{
+                    &:last-child{
+                        margin-top: 0;
+                        margin-left: 5vmin;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin media_request(){
+    .request{
+        padding: 7vmin;
+        @include flex_column_start();
+        &-form, &-success{
+            &_title{
+                max-width: 100vmin;
+                h2{
+                    margin-top: 7vmin;
+                }
+            }
+            &_item{
+                input{
+                    font-size: $font_content;
+                    padding: 5vmin 0;
+                }
+            }
+            &_button{
+                margin-top: 12vmin;
+                @include request_button(
+                    $font_content,
+                    12vmin,
+                    40vmin
+                );
+            }
+        }
+        &-address{
+            margin-top: 10vmin;
+            .tella-address{
+                &_container{
+                    display: flex;
+                    flex-direction: column;
+                }
+                &_item{
+                    &:last-child{
+                        margin-top: 5vmin;
+                    }
+                }
+                @include media_address();
+            }
+        }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) { 
+    @include media_request();
+}
+@media (min-width: 481px) and (max-width: 850px) and (orientation: landscape){ 
+    @include media_request();
+}

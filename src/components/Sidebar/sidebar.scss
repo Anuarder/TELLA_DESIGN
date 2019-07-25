@@ -1,0 +1,78 @@
+@import "@/styles/root_styles.scss";
+
+.sidebar-page{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    height: 0;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: showSidebar .9s ease-in-out;
+    animation-fill-mode: both;
+}
+
+.hide-sidebar{
+    animation: hideSidebar .7s ease-in-out;
+    animation-fill-mode: both;
+}
+
+.sidebar{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+    font-size: $font_title;
+    font-weight: 600;
+    &_links{
+        margin-top: 7vmin;
+        margin-right: 4.2vmin;
+    }
+    &_link{
+        color: #000;
+        margin-top: 2vmin;
+        opacity: 0;
+        &:hover{
+            cursor: pointer;
+            @include link_hover();
+        }
+        &-animate{
+            animation: slide_item .7s ease-in-out;
+			opacity: 1;
+        }
+    }
+    &_social-links{
+        margin-top: 2vmin;
+        font-size: $font_content;
+        opacity: 0;
+        &-animate{
+            animation: slide_item .7s ease-in-out;
+			opacity: 1;
+        }
+    }
+    &_social-link{
+        color: #000;
+        margin-left: 2vmin;
+        &:hover{
+            @include link_hover();
+        }
+    }
+}
+
+@mixin sidebar_media() {
+    .sidebar{
+        &_social-links{
+            margin-top: 5vmin;
+        }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+	@include sidebar_media();
+}
+@media (min-width: 481px) and (max-width: 850px) and (orientation: landscape) {
+	@include sidebar_media();
+}

@@ -1,0 +1,67 @@
+@import "@/styles/root_styles.scss";
+
+.tella-address {
+	&_item {
+		h1 {
+			font-size: $font-content-title;
+			font-weight: 500;
+		}
+		h2 {
+			margin-top: 1vmin;
+			font-size: $font_content;
+			font-weight: 300;
+			// &:last-child {
+			// 	font-style: italic;
+			// }
+		}
+
+		a {
+			font-style: italic;
+		}
+	}
+
+	&_item-2 {
+		margin-top: 4vmin;
+	}
+
+	&_social {
+		margin-top: 4vmin;
+	}
+	&_mail-link {
+		font-size: $font_content;
+	}
+	&_social-links {
+		display: flex;
+		margin-top: 2vmin;
+		a {
+			&:last-child {
+				margin-left: 2vmin;
+			}
+		}
+	}
+}
+
+@mixin media_address() {
+	&_item {
+		&:last-child {
+			margin-left: 0;
+		}
+	}
+	&_item-2 {
+		margin-top: 4vmin;
+	}
+	&_social {
+		margin-top: 4vmin;
+	}
+	&_mail-link {
+		font-size: 5vmin;
+	}
+	&_social-links {
+		margin-top: 4vmin;
+		a {
+			&:last-child {
+				margin-left: 4vmin;
+			}
+		}
+	}
+}
